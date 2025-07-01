@@ -78,3 +78,13 @@ npm run cron
 ### Hojas creadas dinamicamente
 
 ![Home page](./src/assets/f2.png)
+
+## 🧩 ¿Cómo implementarías esta solución en producción?
+
+Implementaría esta solución en producción utilizando un cronjob programado en un entorno de servidor confiable (como Vercel Cron o un servidor con PM2) que ejecute el script automáticamente a intervalos definidos, por ejemplo, yo lo implementaría una vez al día por las mañanas para así tener toda la informacion de las vents más recientes del día anterior.
+
+La lógica ya está preparada para generar un nuevo reporte en Google Sheets en cada ejecución, lo que permite automatizar el proceso completamente sin intervención manual. Además, si en dado caso se requiere información más reciente durante el trayecto del día se puede implementar la ejecución manual, también puede ejecutarse fácilmente con un script local (npm start).
+
+Alternativamente, podría integrarse un webhook desde Shopify para ejecutar el script automáticamente al momento de que ocurra un nuevo pedido, aunque esto requeriría una pequeña API que reciba los eventos y dispare la lógica del reporte.
+
+En resumen, el proyecto puede escalar desde una ejecución manual hasta una integración completamente automatizada, dependiendo de los requerimientos operativos.
