@@ -4,8 +4,9 @@ import { generateShopifyReport } from "./core/report.generator";
 
 console.log("⏰ Iniciando generador de reporte con cron job...");
 
-// El reporte se genera en automatico todos los días a las 8:00 AM
-cron.schedule("0 8 * * *", async () => {
+// El reporte se genera en automatico cada 5 segundos
+// Puedes cambiar el cron a tu necesidad, por ejemplo: "0 0 * * * " para ejecutarlo diariamente a la medianoche
+cron.schedule("*/5 * * * * *", async () => {
   try {
     await generateShopifyReport();
     console.log(`Reporte generado exitosamente ✅ : ${config.googleSheetUrl}`);
